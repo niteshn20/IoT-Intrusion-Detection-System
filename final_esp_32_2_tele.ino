@@ -9,7 +9,7 @@ const char* ssid = "Nite";
 const char* pass = "dontknow";
 
 String BOT_TOKEN = "YOUR TELEGRAM TOKEN";
-String CHAT_ID   = "5053708807";
+String CHAT_ID   = "YOUR CHAT ID";
 
 WiFiClientSecure client;   // ✅ MUST BE GLOBAL
 
