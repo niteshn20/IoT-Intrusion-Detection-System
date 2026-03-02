@@ -10,12 +10,12 @@ const char* ssid = "Nite";
 const char* pass = "dontknow";
 
 // Telegram
-String BOT_TOKEN = "8567551754:AAEXq1gx-9MttB345_RnMB38q0Zx4bOgFLg";
-String CHAT_ID   = "5053708807";
+String BOT_TOKEN = "YOUR TELEGRAM API";
+String CHAT_ID   = "YOUR CHANNEL ID ";
 
 // ThingSpeak
-unsigned long channelID = 3279969;
-const char* writeAPIKey = "Z3U8JCM2RTXR8ZJE";
+unsigned long channelID = "THING SPEAK CHANNEL ID (without quotes)";
+const char* writeAPIKey = "API key";
 
 WiFiClient tsClient;              // ThingSpeak client
 WiFiClientSecure telegramClient;  // Telegram client
@@ -24,8 +24,8 @@ unsigned long lastAlert = 0;
 unsigned long lastTSUpdate = 0;
 
 // =====================================================
-// TELEGRAM FUNCTION (POST METHOD - STABLE)
-// =====================================================
+// TELEGRAM FUNCTION 
+// ===================================
 void sendTelegram(String msg) {
 
   if (WiFi.status() != WL_CONNECTED) {
@@ -75,7 +75,7 @@ void setup() {
     Serial.print(".");
   }
 
-  Serial.println("\n✅ Internet Connected");
+  Serial.println("\n Internet Connected");
   Serial.println(WiFi.localIP());
 
   // Initialize ThingSpeak
@@ -93,7 +93,7 @@ void loop() {
   if (Serial2.available()) {
 
     String line = Serial2.readStringUntil('\n');
-    line.trim();   // 🔥 IMPORTANT FIX
+    line.trim();
 
     Serial.println("Received: [" + line + "]");
 
@@ -134,9 +134,9 @@ void loop() {
       int x = ThingSpeak.writeFields(channelID, writeAPIKey);
 
       if (x == 200) {
-        Serial.println("✅ ThingSpeak Updated");
+        Serial.println(" ThingSpeak Updated");
       } else {
-        Serial.println("❌ ThingSpeak Error: " + String(x));
+        Serial.println(" ThingSpeak Error: " + String(x));
       }
 
       lastTSUpdate = millis();
